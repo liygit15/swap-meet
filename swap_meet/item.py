@@ -1,6 +1,6 @@
 import uuid
 
-description = {
+condition_description = {
     0: "heavily used",
     1: "used",
     2: "fair",
@@ -9,12 +9,28 @@ description = {
     5: "mint"
 }
 
+age_description = {
+    0: "more than 10 years",
+    1: "more than 5 years but not more than 10 years",
+    2: "more than 2 years but not more than 5 years",
+    3: "more than 1 years but not more than 2 years",
+    4: "more than 3 months but not more than 1 year",
+    5: "new"
+}
+
 
 # wave 2
 class Item:
-    def __init__(self, id = None, condition = 0):
-        self.id = uuid.uuid4().int if id is None else id
+    def __init__(self, id = None, condition = 0, age = None):
+        # try:
+        self.id = uuid.uuid4().int if id is None else int(id)
+        # except TypeError as err:
+        #     print("You should input an integer not others.")
+
+
+
         self.condition = condition
+        self.age = age 
 
 
     def get_category(self):
@@ -30,9 +46,12 @@ class Item:
     def condition_description(self):
 
         condition = self.condition
-        return description[condition]
+        return condition_description[condition]
 
 
+    def age_description(self):
 
+        age = self.age
+        return condition_description[age]
     
     

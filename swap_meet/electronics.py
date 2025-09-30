@@ -3,9 +3,9 @@ import uuid
 from .item import Item
 
 class Electronics(Item):
-    def __init__(self, id = None, type = "Unknown", condition = 0):
+    def __init__(self, id = None, type = "Unknown", condition = 0, age = 0):
         # self.id = uuid.uuid4().int if id is None else id
-        super().__init__(id = id, condition = condition)
+        super().__init__(id = id, condition = condition, age = age)
         self.type = type 
         
 

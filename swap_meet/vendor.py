@@ -99,3 +99,26 @@ class Vendor:
         return True
         
         
+    # optional enhancements
+    def get_newest_by_category(self, category):
+        newest_score = -1
+        newest_item = None
+
+        select_by_category = self.get_by_category(category)
+        for item in select_by_category:
+            if item.age > newest_score:
+                newest_score = item.age
+                newest_item = item
+
+        return newest_item
+    
+    def swap_by_newest(self, other_vendor, my_priority, their_priority):
+        if not self.get_newest_by_category(their_priority)  or  not other_vendor.get_newest_by_category(my_priority) :
+            return False
+        
+        other_vendor_newest_item = other_vendor.get_newest_by_category(my_priority)
+        vendor_newest_item = self.get_newest_by_category(their_priority)
+        # swap
+        self.swap_items(other_vendor,vendor_newest_item, other_vendor_newest_item)
+
+        return True
