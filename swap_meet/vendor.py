@@ -54,10 +54,14 @@ class Vendor:
         # return True
         
         # solution2 swap positon to make time complexity small, use temp to store value which exchange
-        temp = self.inventory[0]
-        self.inventory[0] = other_vendor.inventory[0] 
-        other_vendor.inventory[0] = temp
+        # temp = self.inventory[0]
+        # self.inventory[0] = other_vendor.inventory[0] 
+        # other_vendor.inventory[0] = temp
 
+        # return True
+
+        # solution3 use instance method of wave 3
+        self.swap_items(other_vendor,self.inventory[0],other_vendor.inventory[0])
         return True
 
     # wave 6 method 1
@@ -87,10 +91,10 @@ class Vendor:
         if not self.get_best_by_category(their_priority)  or  not other_vendor.get_best_by_category(my_priority) :
             return False
         
-        other_vendor_best = other_vendor.get_best_by_category(my_priority)
-        vendor_best = self.get_best_by_category(their_priority)
+        other_vendor_best_item = other_vendor.get_best_by_category(my_priority)
+        vendor_best_item = self.get_best_by_category(their_priority)
         # swap
-        self.swap_items(other_vendor,vendor_best, other_vendor_best)
+        self.swap_items(other_vendor,vendor_best_item, other_vendor_best_item)
 
         return True
         

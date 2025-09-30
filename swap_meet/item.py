@@ -18,8 +18,9 @@ class Item:
 
 
     def get_category(self):
-        # return f"{Item}"   hard code , if there is subclass , that will still be Item, not flexible.
-        return self.__class__.__name__
+        # return "Item"   hard code , if there is subclass , that will still be Item, not flexible.
+        # return self.__class__.__name__  # __name__ 是为了获得class的名字。
+        return "Item"   
     
 
     def __str__(self):
