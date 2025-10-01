@@ -14,7 +14,7 @@ class Vendor:
             self.inventory.remove(item)
             return item
     
-        return item
+        return False
     
     # wave 2 
     def get_by_id(self,id):
@@ -75,7 +75,7 @@ class Vendor:
     
     # wave 6 method 2
     def get_best_by_category(self, category):
-        highest_score = 0
+        highest_score = -1
         highest_item = None
 
         select_by_category = self.get_by_category(category)
