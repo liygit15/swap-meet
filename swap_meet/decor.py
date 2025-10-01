@@ -9,11 +9,12 @@ class Decor(Item):
         self.width = width 
         self.length = length if length else 0 # 有什么区别？和上下
 
-    def get_category(self):
-        return "Decor"
+    # def get_category(self):
+    #     return "Decor"
     
     def __str__(self):
-        return f"An object of type Decor with id {self.id}. It takes up a {self.width} by {self.length} sized space."
+        str_from_item = super().__str__()
+        return f"{str_from_item} It takes up a {self.width} by {self.length} sized space."
     
 
     

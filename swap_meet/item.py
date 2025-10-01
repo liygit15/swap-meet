@@ -35,12 +35,11 @@ class Item:
 
     def get_category(self):
         # return "Item"   hard code , if there is subclass , that will still be Item, not flexible.
-        # return self.__class__.__name__  # __name__ 是为了获得class的名字。
-        return "Item"   
+        return self.__class__.__name__  # __name__ to get the class name
     
 
     def __str__(self):
-        return f"An object of type Item with id {self.id}."  # same as get_category, there maybe hard code issue
+        return f"An object of type {self.get_category()} with id {self.id}."  # same as get_category, there maybe hard code issue
     
     # wave 5 last one
     def condition_description(self):

@@ -8,10 +8,11 @@ class Clothing(Item):
         super().__init__(id = id, condition = condition, age = age)
         self.fabric = fabric if fabric else "Unknown"  # 不太会这部分
 
-    def get_category(self):
-        return "Clothing"
+    # def get_category(self):
+    #     return "Clothing"
     
     def __str__(self):
-        return f"An object of type {self.get_category()} with id {self.id}. It is made from {self.fabric} fabric."
+        str_from_item = super().__str__()
+        return f"{str_from_item} It is made from {self.fabric} fabric."
 
     
